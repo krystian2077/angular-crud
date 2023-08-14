@@ -25,12 +25,12 @@ export class AppComponent implements OnInit {
     'campaignName',
     'category',
     'title',
-    'description',
     'price',
     'status',
     'town',
     'radius',
     'campaignFund',
+    'action',
   ];
   dataSource!: MatTableDataSource<any>;
 
@@ -48,9 +48,16 @@ export class AppComponent implements OnInit {
   }
 
   openDialog() {
-    this.dialog.open(DialogComponent, {
-      width: '600px',
-    });
+    this.dialog
+      .open(DialogComponent, {
+        width: '600px',
+      })
+      .afterClosed()
+      .subscribe((val) => {
+        if (val === 'save') {
+          this.getAllCampaigns();
+        }
+      });
   }
 
   getAllCampaigns() {
@@ -62,6 +69,32 @@ export class AppComponent implements OnInit {
       },
       error: (err) => {
         this.toastr.error('Error while fetching the Records!');
+      },
+    });
+  }
+
+  editCampaign(row: any) {
+    this.dialog
+      .open(DialogComponent, {
+        width: '600px',
+        data: row,
+      })
+      .afterClosed()
+      .subscribe((val) => {
+        if (val === 'update') {
+          this.getAllCampaigns();
+        }
+      });
+  }
+
+  deleteCampaign(id: number) {
+    this.api.deleteCampaign(id).subscribe({
+      next: (res) => {
+        this.toastr.success('Product deleted successfully');
+        this.getAllCampaigns();
+      },
+      error: () => {
+        this.toastr.error('Error while deleting campaign!');
       },
     });
   }

@@ -19,9 +19,9 @@
         <mat-option value="Toys & Games">Toys & Games</mat-option>
         <mat-option value="Video Games">Video Games</mat-option>
         <mat-option value="Clothing, Shoes & Jewelry"
-          >Clothing, Shoes & Jewelry</mat-option
+          >Clothing & Shoes</mat-option
         >
-        <mat-option value="Sports and Outdoors">Sports and Outdoors</mat-option>
+        <mat-option value="Sports and Outdoors">Sports & Outdoors</mat-option>
         <mat-option value="Books">Books</mat-option>
         <mat-option value="Movies">Movies</mat-option>
         <mat-option value="Music">Music</mat-option>
@@ -35,11 +35,6 @@
     <mat-form-field appearance="outline">
       <mat-label>Tittle</mat-label>
       <input formControlName="title" matInput placeholder="Tittle" />
-    </mat-form-field>
-
-    <mat-form-field appearance="outline">
-      <mat-label>Description</mat-label>
-      <textarea formControlName="description" matInput></textarea>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
@@ -79,8 +74,8 @@
       <mat-label>Radius</mat-label>
       <mat-select formControlName="radius">
         <mat-option value="+ 0km">+ 0km</mat-option>
-        <mat-option value="ten">+ 10km</mat-option>
-        <mat-option value="+ 10km">+ 20km</mat-option>
+        <mat-option value="+ 10km">+ 10km</mat-option>
+        <mat-option value="+ 20km">+ 20km</mat-option>
         <mat-option value="+ 30km">+ 30km</mat-option>
         <mat-option value="+ 50km">+ 50km</mat-option>
         <mat-option value="+ 70km">+ 70km</mat-option>
@@ -114,6 +109,6 @@
     color="primary"
     (click)="addCampaign()"
   >
-    Save
+    {{ actionBtn }}
   </button>
 </div>

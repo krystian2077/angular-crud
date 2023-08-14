@@ -4,25 +4,12 @@
       "campaignName": "Nike",
       "category": "Clothing, Shoes & Jewelry",
       "title": "New collection shoes",
-      "description": "Air Max",
       "price": 230,
       "status": "On",
       "town": "Warszawa",
-      "radius": "+ 50km",
+      "radius": "+ 70km",
       "campaignFund": 40000,
       "id": 1
-    },
-    {
-      "campaignName": "Adidas",
-      "category": "Sports and Outdoors",
-      "title": "New T-shirts",
-      "description": "My desc...",
-      "price": 25,
-      "status": "On",
-      "town": "Łódź",
-      "radius": "ten",
-      "campaignFund": 10000,
-      "id": 2
     }
   ],
   "comments": [
