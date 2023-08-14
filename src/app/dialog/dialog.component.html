@@ -1,96 +1,119 @@
-<h1 mat-dialog-title>Add Campaign Form</h1>
+<h1 mat-dialog-title class="main-title">Add Campaign Form</h1>
 
 <div mat-dialog-content>
-  <mat-form-field appearance="outline">
-    <mat-label>Campaign Name</mat-label>
-    <input matInput placeholder="Campaign Name" required />
-  </mat-form-field>
+  <form [formGroup]="campaignForm">
+    <mat-form-field appearance="outline">
+      <mat-label>Campaign Name</mat-label>
+      <input
+        formControlName="campaignName"
+        matInput
+        placeholder="Campaign Name"
+      />
+    </mat-form-field>
 
-  <mat-form-field appearance="outline">
-    <mat-label>Category</mat-label>
-    <mat-select placeholder="Category" required>
-      <mat-option value="Electronics">Electronics</mat-option>
-      <mat-option value="Tools">Tools</mat-option>
-      <mat-option value="ToysGames">Toys & Games</mat-option>
-      <mat-option value="VideoGames">Video Games</mat-option>
-      <mat-option value="ClothingShoesJewelry"
-        >Clothing, Shoes & Jewelry</mat-option
+    <mat-form-field appearance="outline">
+      <mat-label>Category</mat-label>
+      <mat-select formControlName="category" placeholder="Category">
+        <mat-option value="Electronics">Electronics</mat-option>
+        <mat-option value="Tools">Tools</mat-option>
+        <mat-option value="Toys & Games">Toys & Games</mat-option>
+        <mat-option value="Video Games">Video Games</mat-option>
+        <mat-option value="Clothing, Shoes & Jewelry"
+          >Clothing, Shoes & Jewelry</mat-option
+        >
+        <mat-option value="Sports and Outdoors">Sports and Outdoors</mat-option>
+        <mat-option value="Books">Books</mat-option>
+        <mat-option value="Movies">Movies</mat-option>
+        <mat-option value="Music">Music</mat-option>
+        <mat-option value="Health & Beauty">Health & Beauty</mat-option>
+        <mat-option value="Home & Garden">Home & Garden</mat-option>
+        <mat-option value="Motorization">Motorization</mat-option>
+        <mat-option value="Food Products">Food Products</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Tittle</mat-label>
+      <input formControlName="title" matInput placeholder="Tittle" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Description</mat-label>
+      <textarea formControlName="description" matInput></textarea>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Price</mat-label>
+      <span matTextPrefix>$&nbsp;</span>
+      <input formControlName="price" matInput type="number" placeholder="0" />
+    </mat-form-field>
+
+    <label for=""><h2>Status</h2></label>
+    <mat-radio-group class="example-radio-group" formControlName="status">
+      <mat-radio-button
+        class="example-radio-button"
+        *ngFor="let status of statusList"
+        [value]="status"
       >
-      <mat-option value="SportsAndOutdoors">Sports and Outdoors</mat-option>
-      <mat-option value="Books">Books</mat-option>
-      <mat-option value="Movies">Movies</mat-option>
-      <mat-option value="Music">Music</mat-option>
-      <mat-option value="HealthBeauty">Health & Beauty</mat-option>
-      <mat-option value="HomeGarden">Home & Garden</mat-option>
-      <mat-option value="Motorization">Motorization</mat-option>
-      <mat-option value="FoodProducts">Food Products</mat-option>
-    </mat-select>
-  </mat-form-field>
+        {{ status }}
+      </mat-radio-button>
+    </mat-radio-group>
 
-  <mat-form-field appearance="outline">
-    <mat-label>Tittle</mat-label>
-    <input matInput placeholder="Tittle" required />
-  </mat-form-field>
+    <mat-form-field class="town-group">
+      <mat-label>Select Town</mat-label>
+      <mat-select formControlName="town">
+        <mat-option value="Kraków">Kraków</mat-option>
+        <mat-option value="Warszawa">Warszawa</mat-option>
+        <mat-option value="Wrocław">Wrocław</mat-option>
+        <mat-option value="Poznań">Poznań</mat-option>
+        <mat-option value="Gdańsk">Gdańsk</mat-option>
+        <mat-option value="Łódź">Łódź</mat-option>
+        <mat-option value="Zakopane">Zakopane</mat-option>
+        <mat-option value="Lublin">Lublin</mat-option>
+        <mat-option value="Białystok">Białystok</mat-option>
+        <mat-option value="Szczecin">Szczecin</mat-option>
+      </mat-select>
+    </mat-form-field>
 
-  <mat-form-field appearance="outline">
-    <mat-label>Description</mat-label>
-    <textarea matInput></textarea>
-  </mat-form-field>
+    <mat-form-field class="radius-group">
+      <mat-label>Radius</mat-label>
+      <mat-select formControlName="radius">
+        <mat-option value="+ 0km">+ 0km</mat-option>
+        <mat-option value="ten">+ 10km</mat-option>
+        <mat-option value="+ 10km">+ 20km</mat-option>
+        <mat-option value="+ 30km">+ 30km</mat-option>
+        <mat-option value="+ 50km">+ 50km</mat-option>
+        <mat-option value="+ 70km">+ 70km</mat-option>
+        <mat-option value="+ 90km">+ 90km</mat-option>
+        <mat-option value="+ 100km">+ 100km</mat-option>
+        <mat-option value="+ 120km">+ 120km</mat-option>
+        <mat-option value="+ 150km">+ 150km</mat-option>
+        <mat-option value="+ 200km">+ 200km</mat-option>
+      </mat-select>
+    </mat-form-field>
 
-  <mat-form-field appearance="outline">
-    <mat-label>Price</mat-label>
-    <span matTextPrefix>$&nbsp;</span>
-    <input matInput type="number" placeholder="0" required />
-  </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Campaign fund</mat-label>
+      <span matTextPrefix>$&nbsp;</span>
+      <input
+        formControlName="campaignFund"
+        matInput
+        type="number"
+        placeholder="0"
+        required
+      />
+    </mat-form-field>
+  </form>
+</div>
 
-  <label for=""><h2>Status</h2></label>
-  <mat-radio-group class="example-radio-group">
-    <mat-radio-button
-      class="example-radio-button"
-      *ngFor="let status of statusList"
-      [value]="status"
-      required
-    >
-      {{ status }}
-    </mat-radio-button>
-  </mat-radio-group>
-
-  <mat-form-field class="town-group">
-    <mat-label>Select Town</mat-label>
-    <mat-select required>
-      <mat-option value="Kraków">Kraków</mat-option>
-      <mat-option value="Warszawa">Warszawa</mat-option>
-      <mat-option value="Wrocław">Wrocław</mat-option>
-      <mat-option value="Poznań">Poznań</mat-option>
-      <mat-option value="Gdańsk">Gdańsk</mat-option>
-      <mat-option value="Łódź">Łódź</mat-option>
-      <mat-option value="Zakopane">Zakopane</mat-option>
-      <mat-option value="Lublin">Lublin</mat-option>
-      <mat-option value="Białystok">Białystok</mat-option>
-      <mat-option value="Szczecin">Szczecin</mat-option>
-    </mat-select>
-  </mat-form-field>
-
-  <mat-form-field class="radius-group">
-    <mat-label>Radius</mat-label>
-    <mat-select required>
-      <mat-option value="zero">+ 0km</mat-option>
-      <mat-option value="ten">+ 10km</mat-option>
-      <mat-option value="twenty">+ 20km</mat-option>
-      <mat-option value="thirty">+ 30km</mat-option>
-      <mat-option value="fifty">+ 50km</mat-option>
-      <mat-option value="seventy">+ 70km</mat-option>
-      <mat-option value="ninety">+ 90km</mat-option>
-      <mat-option value="hundred">+ 100km</mat-option>
-      <mat-option value="oneHundredTwenty">+ 120km</mat-option>
-      <mat-option value="oneHundredFifty">+ 150km</mat-option>
-      <mat-option value="twoHundred">+ 200km</mat-option>
-    </mat-select>
-  </mat-form-field>
-
-  <mat-form-field appearance="outline">
-    <mat-label>Campaign fund</mat-label>
-    <span matTextPrefix>$&nbsp;</span>
-    <input matInput type="number" placeholder="0" required />
-  </mat-form-field>
+<div mat-dialog-actions [align]="'end'">
+  <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+  <button
+    style="margin-right: 20px"
+    mat-raised-button
+    color="primary"
+    (click)="addCampaign()"
+  >
+    Save
+  </button>
 </div>

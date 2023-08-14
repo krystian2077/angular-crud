@@ -2,6 +2,10 @@ mat-form-field {
   width: 100%;
 }
 
+.main-title {
+  font-size: 28px;
+}
+
 .mdc-dialog__title + .mdc-dialog__content,
 .mdc-dialog__header + .mdc-dialog__content {
   padding-top: 10px;
@@ -36,9 +40,9 @@ input.example-right-align {
 }
 
 .town-group {
-  width: 70%;
+  width: 50%;
 }
 
 .radius-group {
-  width: 30%;
+  width: 50%;
 }
