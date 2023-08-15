@@ -7,9 +7,31 @@
       "price": 230,
       "status": "On",
       "town": "Warszawa",
-      "radius": "+ 70km",
+      "radius": "+ 20km",
       "campaignFund": 40000,
       "id": 1
+    },
+    {
+      "campaignName": "Netflix",
+      "category": "Movies",
+      "title": "New season of Witcher",
+      "price": 55,
+      "status": "On",
+      "town": "Kraków",
+      "radius": "+ 30km",
+      "campaignFund": 30000,
+      "id": 2
+    },
+    {
+      "campaignName": "New outdoors style",
+      "category": "Sports and Outdoors",
+      "title": "New t-shirts and shoes",
+      "price": 100,
+      "status": "On",
+      "town": "Białystok",
+      "radius": "+ 200km",
+      "campaignFund": 20000,
+      "id": 3
     }
   ],
   "comments": [
